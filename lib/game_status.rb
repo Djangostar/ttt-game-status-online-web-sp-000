@@ -26,3 +26,9 @@ def won?(board)
   end
   false
 end
+
+def full?(board)
+  if board.all? {|taken| board[taken] == "X" && board[taken] == "0"}
+    return true
+  end
+end
