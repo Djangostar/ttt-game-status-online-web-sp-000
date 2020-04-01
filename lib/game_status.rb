@@ -29,4 +29,5 @@ end
 
 def full?(board)
   board.all? {|taken| taken == "X" && taken == "O"}
+  true
 end
