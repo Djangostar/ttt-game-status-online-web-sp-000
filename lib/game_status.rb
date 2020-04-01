@@ -28,7 +28,8 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? {|spot| spot == "X" || spot == "O"}
+  board.all? do |taken| taken == "X" || taken == "O"
+  end
 end
 
 def draw?(board)
@@ -36,7 +37,7 @@ def draw?(board)
 end
 
 def over?(board)
-  if won?(board) || full?(board) || draw?(board)
+  if won?(board) || draw?(board) || full?(board)
     return true
   else
     false
