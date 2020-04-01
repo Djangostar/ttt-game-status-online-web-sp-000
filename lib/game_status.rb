@@ -30,3 +30,7 @@ end
 def full?(board)
   board.all? {|taken| taken == "X" || taken == "O"}
 end
+
+def draw?
+  !(won?(board)) && full?(board)
+end
