@@ -17,10 +17,10 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   WIN_COMBINATIONS.each do |win|
-    if win.all? {|x| win(board) == "X"}
+    if win.all? {|x| board[x] == "X"}
       return win
-    else
-      win.all? {|o| win(board) == "O"}
+    elsif
+      win.all? {|o| board[o] == "O"}
       return win
     end
   end
