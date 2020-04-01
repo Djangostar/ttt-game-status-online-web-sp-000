@@ -17,35 +17,12 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   WIN_COMBINATIONS.each do |win|
-    if win.all?{|x| board[x] == "X"}
+    if win.all? {|x| won?(board) == "X"}
       return win
-    elsif
-      win.all?{|o| board[o] == "O"}
+    else
+      win.all? {|o| won?(board) == "O"}
       return win
     end
   end
   false
-end
-
-def full?(board)
-  board.all? do |taken| taken == "X" || taken == "O"
-  end
-end
-
-def draw?(board)
-  !(won?(board)) && full?(board)
-end
-
-def over?(board)
-  if won?(board) || draw?(board) || full?(board)
-    return true
-  else
-    false
-  end
-end
-
-def winner(board)
-  if won?(board)
-    return board[won?(board) [0]]
-  end
 end
